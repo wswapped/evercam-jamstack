@@ -6,15 +6,15 @@ export default {
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
-    titleTemplate: '%s - evercam',
-    title: 'evercam',
+    titleTemplate: '%s | Evercam',
+    title: 'Evercam',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/png', href: '/favicon_32)32.png', sizes:"32x32" }
     ]
   },
 

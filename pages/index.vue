@@ -81,6 +81,9 @@ import Logo from '~/components/Logo.vue'
 import VuetifyLogo from '~/components/VuetifyLogo.vue'
 
 export default {
+  head: {
+    title: "Construction Time-lapse & Project Management Live Cameras"
+  },
   components: {
     Logo,
     VuetifyLogo
