@@ -2,9 +2,7 @@
 	<v-app>
 		<Navbar></Navbar>
 		<v-main>
-			<v-container :fluid="true">
-				<nuxt />
-			</v-container>
+			<nuxt />
 		</v-main>
 		<v-footer :absolute="!fixed" app>
 			<span>&copy; {{ new Date().getFullYear() }}</span>

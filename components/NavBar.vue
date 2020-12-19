@@ -12,7 +12,7 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-toolbar class="transparent">
+    <v-toolbar class="transparent pl-15 pr-10">
       <span class="hidden-sm-and-up">
         <v-toolbar-side-icon @click="sidebar = !sidebar">
         </v-toolbar-side-icon>
