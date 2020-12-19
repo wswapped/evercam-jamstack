@@ -1,0 +1,21 @@
+.home-banner-container{
+	position: absolute;
+    top: -64px;
+    left: 0;
+    width: 100%;
+	z-index: 3;
+	
+	#home-banner{
+		display: flex;
+		align-items: center;
+		background:top center url(/img/home-banner-bg.jpg) no-repeat;
+		height: calc(100vh + 64px);
+		h1{
+			font-family: $header-font-family;
+			font-weight: 400;
+			font-style: normal;
+			font-size: 65px;
+			line-height: 70px;
+		}
+	}
+}

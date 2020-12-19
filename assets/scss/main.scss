@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import '../variables.scss';
+@import 'home.scss';
+// .v-application, body{
+// 	// font-family: $font-family !important;
+// 	// font-weight: 300;
+// }
+
+.navbar .v-toolbar__items{
+	font-weight: 300 !important;
+	text-transform: initial !important;
+	span{
+		font-weight: 300 !important;
+		text-transform: initial !important;
+	}
+}
+.v-sheet.v-toolbar:not(.v-sheet--outlined){
+	z-index: 10;
+}
+.v-sheet.v-footer:not(.v-sheet--outlined) {
+	position: absolute;
+	left: initial;
+	right: initial !important;
+	bottom: -64px !important;
+}

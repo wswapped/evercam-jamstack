@@ -14,12 +14,13 @@ export default {
       { hid: 'description', name: 'description', content: '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/png', href: '/favicon_32)32.png', sizes:"32x32" }
+      { rel: 'shortcut icon', type: 'image/png', href: '/favicon_32_32.png', sizes:"32x32" }
     ]
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [
+	'@/assets/scss/main.scss',
   ],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
@@ -55,7 +56,7 @@ export default {
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {
-      dark: true,
+      dark: false,
       themes: {
         dark: {
           primary: colors.blue.darken2,

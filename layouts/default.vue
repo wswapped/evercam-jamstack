@@ -1,8 +1,8 @@
 <template>
-	<v-app dark>
+	<v-app>
 		<Navbar></Navbar>
 		<v-main>
-			<v-container>
+			<v-container :fluid="true">
 				<nuxt />
 			</v-container>
 		</v-main>
