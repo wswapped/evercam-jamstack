@@ -9,7 +9,7 @@
 							<h1>CONSTRUCTION CAMERAS</h1>
 							<p>At Evercam, we have built the most advanced camera software, so that you can concentrate on better management and speedy completion.</p>
 							<v-btn
-								color="red white--text"
+								color="primary white--text"
 								nuxt
 								tile
 								to="/inspire"
@@ -21,7 +21,16 @@
 				</v-row>
 			</v-container>
 		</div>
+		
 	</div>
+	<div class="home-banner-after"></div>
+	<v-container>
+		<v-row>
+			<v-col cols="12" >
+				<h1 class="primary--text">TIME-LAPSE & PROJECT MANAGEMENT CAMERAS</h1>
+			</v-col>
+		</v-row>
+	</v-container>
 </div>
 
 </template>
