@@ -32,7 +32,7 @@
         </v-col>
         <v-col cols="4">
           <div>
-            <span class="sprite-icon icon-promote"></span>
+            <span class="sprite-icon sprite-icon-bg icon-promote"></span>
             <h2 class="text-uppercase">Promote</h2>
           </div>
 
@@ -48,7 +48,7 @@
         </v-col>
         <v-col cols="4">
           <div>
-            <span class="sprite-icon icon-collaborate"></span>
+            <span class="sprite-icon sprite-icon-bg icon-collaborate"></span>
             <h2 class="text-uppercase">COLLABORATE</h2>
           </div>
           <p>
@@ -62,7 +62,7 @@
         </v-col>
         <v-col cols="4">
           <div>
-            <span class="sprite-icon icon-avoid-disputes"></span>
+            <span class="sprite-icon sprite-icon-bg icon-avoid-disputes"></span>
           </div>
           <h2 class="text-uppercase">AVOID DISPUTES</h2>
           <p>Don't just win arguments, avoid them. You own the evidence.</p>
@@ -89,8 +89,168 @@
           </ul>
         </v-col>
       </v-row>
+      <v-row class="pl-15 section">
+        <v-col cols="6">
+          <div class="embed-responsive">
+            <iframe
+              class="embed-responsive-item lazyloaded"
+              title="vimeo242232239"
+              name="fitvid0"
+              allowfullscreen="allowfullscreen"
+              data-src="https://player.vimeo.com/video/436930200?autoplay=1&amp;loop=1&amp;autopause=0&amp;title=0&amp;byline=0&amp;background=1"
+            ></iframe>
+          </div>
+        </v-col>
+        <v-col cols="6">
+          <h1 class="section-title primary--text">
+            PROJECTS POWERED BY EVERCAM
+          </h1>
+          <p class="text-right">
+            With cameras live on the biggest construction projects in Ireland,
+            UK, Australia, USA, Singapore and beyond.
+            <br />
+            Helping construction companies to communicate better and be more
+            efficient.
+          </p>
+        </v-col>
+      </v-row>
+      <v-row class="pl-15 section">
+        <v-col cols="8">
+          <h1 class="section-title primary--text">
+            EFFICIENCY, TRANSPARENCY & SAFETY, LIVE AT YOUR SITE
+          </h1>
+          <p>With Evercam you get a lot more in <b>1 system</b>.</p>
+        </v-col>
+        <v-col cols="4">
+          <!-- Camera image Offset -->
+        </v-col>
 
-	  
+        <v-col cols="4">
+          <div class="feature sprite-icon live-view">
+            <h2 class="text-uppercase primary--text">LIVE VIEW</h2>
+            <p>
+              Enjoy a <strong>live view</strong> of your construction site from
+              anywhere. Use your mobile, laptop or tablet from the office, on
+              the road or even on-site.
+            </p>
+          </div>
+        </v-col>
+        <v-col cols="4">
+          <div class="feature sprite-icon share">
+            <h2 class="text-uppercase primary--text">SHARE</h2>
+            <p>
+              Simply enter an email address to
+              <strong> live or recorded footage</strong>. Our system is 100%
+              secure.
+            </p>
+          </div>
+        </v-col>
+        <v-col cols="4">
+          <!-- Camera image Offset -->
+        </v-col>
+        <v-col cols="4">
+          <div class="feature sprite-icon record">
+            <h2 class="text-uppercase primary--text">RECORD</h2>
+            <p>
+              <b>Record high-resolution images</b> for every second of the
+              construction site progress. This gives you a full recording of the
+              <strong> duration of the project</strong> from green field to
+              handover.
+            </p>
+          </div>
+        </v-col>
+        <v-col cols="4">
+          <div class="feature sprite-icon snapmail">
+            <h2 class="text-uppercase primary--text">Snapmail</h2>
+            <p>
+              Snapmail is a perfect way to send a regular, scheduled reminder
+              about all the key <strong> and project milestones.</strong>
+            </p>
+          </div>
+        </v-col>
+        <v-col cols="4">
+          <div class="feature sprite-icon compare">
+            <h2 class="text-uppercase primary--text">COMPARE</h2>
+            <p>
+              Compare <strong> before and after</strong> images from any point
+              in time. Embed these neat visual aids on your website or
+              promotional material.
+            </p>
+          </div>
+        </v-col>
+      </v-row>
+      <v-row class="pl-15 section">
+        <v-col cols="6">
+          <div class="embed-responsive">
+            <img class="img-fluid" src="/img/time-laps-ipad-min.jpg" />
+          </div>
+        </v-col>
+        <v-col cols="6">
+          <h1 class="section-title primary--text">TIME-LAPSE</h1>
+          <p class="text-right">
+            Make beautiful time-lapse videos of your construction project. Watch
+            the build grow from start to finish in a couple of minutes.
+            <br />
+          </p>
+          <v-btn
+            color="primary white--text float-right"
+            nuxt
+            tile
+            to="/projects"
+            >View projects</v-btn
+          >
+        </v-col>
+      </v-row>
+      <v-row class="pl-15 section">
+        <v-col cols="12">
+          <h1 class="section-title primary--text">SMARTEST CAMERAS</h1>
+          <p class="text-right">
+            At Evercam we have developed the most evolved construction camera
+            software powered by
+            <strong> intelligence, machine learning</strong> and this is just
+            the beginning.
+          </p>
+        </v-col>
+        <v-col cols="12">
+          <!-- <client-only> -->
+          <!-- <vueVimeoPlayer ref="player" video-id="381147583" :player-height="1000"/> -->
+          <!-- </client-only> -->
+          <div class="embed-responsive">
+            <iframe
+              class="embed-responsive-item lazyloaded"
+              title="vimeo242232239"
+              name="fitvid0"
+              allowfullscreen="allowfullscreen"
+              src="https://player.vimeo.com/video/381147583?autoplay=1&amp;loop=1&amp;autopause=0&amp;title=0&amp;byline=0"
+            ></iframe>
+          </div>
+        </v-col>
+      </v-row>
+      <v-row class="pl-15 section">
+        <v-col cols="12">
+          <h1 class="section-title primary--text">
+            TELL US ABOUT YOUR PROJECT
+          </h1>
+        </v-col>
+        <v-col cols="6">
+          <v-row>
+            <v-col cols="6">
+              <img class="img-fluid" src="/img/vinni-q.jpg" />
+            </v-col>
+            <v-col cols="6">
+              <p>I'm Vinnie</p>
+              <p>
+                Call me on <strong>+353 1 539 7227</strong> or complete the form
+                and we will be in touch as soon as possible.
+              </p>
+            </v-col>
+          </v-row>
+        </v-col>
+        <v-col cols="6">
+			<ContactForm />
+          
+        </v-col>
+      </v-row>
     </v-container>
   </div>
 </template>
@@ -98,7 +258,8 @@
 <script>
 import Logo from "~/components/Logo.vue";
 import VuetifyLogo from "~/components/VuetifyLogo.vue";
-
+import { vueVimeoPlayer } from "vue-vimeo-player";
+import ContactForm from '../components/ContactForm.vue';
 export default {
   head: {
     title: "Construction Time-lapse & Project Management Live Cameras",
@@ -137,16 +298,16 @@ export default {
         {
           name: "SISK Builders Contractors",
           img: "/img/pngegg_1-min.png",
-		},
-		{
+        },
+        {
           name: "Marlet",
           img: "/img/marlet-min.png",
         },
         {
           name: "JLL",
           img: "/img/JLL_logo-min.png",
-		},
-		{
+        },
+        {
           name: "Jean Paul Construction",
           img: "/img/JPC_1-min.png",
         },
@@ -157,10 +318,10 @@ export default {
         {
           name: "Hinton Group",
           img: "/img/Image_2-min.png",
-		},
-		{
+        },
+        {
           name: "Batra Capital Property Group",
-          img: "/img/mBartra-Capital-Property-Group-e1469095990721-min-1.png",
+          img: "/img/Bartra-Capital-Property-Group-e1469095990721-min-1.png",
         },
         {
           name: "CAIRN PLC",
@@ -172,6 +333,7 @@ export default {
   components: {
     Logo,
     VuetifyLogo,
+    vueVimeoPlayer,
   },
 };
 </script>
