@@ -7,7 +7,7 @@
           v-for="item in menuItems"
           :key="item.title"
           :to="item.path">
-          <v-list-tile-content class="white--text">{{ item.title }}</v-list-tile-content>
+          <v-list-tile-content :class="menuItemColor">{{ item.title }}</v-list-tile-content>
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
@@ -19,14 +19,14 @@
       </span>
       <v-toolbar-title>
         <router-link to="/" tag="span" style="cursor: pointer">
-		  <img src="/evercam_logo_190x40.png" :alt="appTitle" />
+		  <img :src="logoPath" :alt="appTitle" />
         </router-link>
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-xs-only">
         <v-btn
           text
-		  class="white--text"
+		  :class="menuItemColor"
           v-for="item in menuItems"
           :key="item.title"
           :to="item.path">
@@ -43,10 +43,14 @@
 
 export default {
   name: "NavBar",
+  props: ['page'],
   data(){
+	console.log('page name', this.page == 'home'?'white--text':'noding')
     return {
       appTitle: 'Evercam',
-      sidebar: false,
+	  sidebar: false,
+	  menuItemColor: this.page == 'home'?'white--text':'',
+	  logoPath: this.page == 'home'?'evercam_logo_190x40.png':'evercam_color_logo_190x40.png',
       menuItems: [
           { title: 'Projects', path: '/projects', icon: 'mdi-home' },
           { title: 'Pricing', path: '/pricing', icon: 'face' },

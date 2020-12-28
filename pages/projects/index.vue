@@ -1,26 +1,13 @@
 <template>
   <div>
-    <div class="home-banner-container">
-      <div id="home-banner">
-        <v-container>
-          <v-row>
-            <v-col cols="12" md="7">
-              <div class="white--text pl-10">
-                <h1>CONSTRUCTION CAMERAS</h1>
-                <p>
-                  At Evercam, we have built the most advanced camera software,
-                  so that you can concentrate on better management and speedy
-                  completion.
-                </p>
-                <v-btn color="primary white--text" nuxt tile to="/inspire">
-                  Contact Us Now
-                </v-btn>
-              </div>
-            </v-col>
-          </v-row>
-        </v-container>
-      </div>
-    </div>
+    <v-row>
+      <v-col cols="6">
+		  <p class="h2">Projects</p>
+	  </v-col>
+	  <v-col cols="6">
+		  <p class="h3">Home > Projects</p>
+	  </v-col>
+    </v-row>
     <!-- Offsets for absolute position -->
     <div class="home-banner-after"></div>
     <v-container class="">
@@ -80,10 +67,7 @@
         </v-col>
         <v-col cols="12">
           <ul class="happy-customers">
-            <li
-              v-for="(customer, custKey) in happyCustomers"
-              :key="customer.custKey"
-            >
+            <li v-for="(customer, custKey) in happyCustomers" :key="custKey">
               <img :alt="customer.name" :src="customer.img" />
             </li>
           </ul>
@@ -92,13 +76,13 @@
       <v-row class="pl-15 section">
         <v-col cols="6">
           <div class="embed-responsive">
-            <iframe
+            <!-- <iframe
               class="embed-responsive-item lazyloaded"
               title="vimeo242232239"
               name="fitvid0"
               allowfullscreen="allowfullscreen"
               data-src="https://player.vimeo.com/video/436930200?autoplay=1&amp;loop=1&amp;autopause=0&amp;title=0&amp;byline=0&amp;background=1"
-            ></iframe>
+            ></iframe> -->
           </div>
         </v-col>
         <v-col cols="6">
@@ -216,13 +200,13 @@
           <!-- <vueVimeoPlayer ref="player" video-id="381147583" :player-height="1000"/> -->
           <!-- </client-only> -->
           <div class="embed-responsive">
-            <iframe
+            <!-- <iframe
               class="embed-responsive-item lazyloaded"
               title="vimeo242232239"
               name="fitvid0"
               allowfullscreen="allowfullscreen"
               src="https://player.vimeo.com/video/381147583?autoplay=1&amp;loop=1&amp;autopause=0&amp;title=0&amp;byline=0"
-            ></iframe>
+            ></iframe> -->
           </div>
         </v-col>
       </v-row>
@@ -247,8 +231,7 @@
           </v-row>
         </v-col>
         <v-col cols="6">
-			<ContactForm />
-          
+          <ContactForm />
         </v-col>
       </v-row>
     </v-container>
@@ -256,17 +239,16 @@
 </template>
 
 <script>
-import "~/assets/scss/home.scss";
 import Logo from "~/components/Logo.vue";
 import VuetifyLogo from "~/components/VuetifyLogo.vue";
 import { vueVimeoPlayer } from "vue-vimeo-player";
-import ContactForm from '@/components/ContactForm.vue';
+import ContactForm from "~/components/ContactForm.vue";
+import "~/assets/scss/home.scss";
 
 export default {
   head: {
-    title: "Construction Time-lapse & Project Management Live Cameras",
+    title: "Projects Archive",
   },
-  layout: 'home',
   data() {
     return {
       happyCustomers: [

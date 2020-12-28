@@ -1,6 +1,6 @@
 <template>
 	<v-app>
-		<Menu />
+		<Menu page="home" />
 		<v-main>
 			<nuxt />
 		</v-main>
@@ -13,7 +13,7 @@
 <script>
 import Menu from '../components/Menu';
 export default {
-	name: 'HomeLayout',
+	name: 'MainLayout',
 	data() {
 		return {
 			clipped: false,
@@ -38,6 +38,7 @@ export default {
 		};
 	},
 	mounted(){
+		console.log(this)
 	},
 	components:{
 		Menu
