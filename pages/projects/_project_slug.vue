@@ -54,7 +54,9 @@
               <tbody>
                 <tr>
                   <td>Client</td>
-                  <td><a href="https://oneforcetx.com/">OneForce Construction</a></td>
+                  <td>
+                    <a href="https://oneforcetx.com/">OneForce Construction</a>
+                  </td>
                 </tr>
                 <tr>
                   <td>Channel Partner</td>
@@ -77,9 +79,12 @@ import ContactForm from "~/components/ContactForm.vue";
 import "~/assets/scss/projects.scss";
 
 export default {
-  head: {
-    title: "Projects Archive",
+  head() {
+    return {
+      title: this.project.name,
+    };
   },
+  props: ["slug"],
   data() {
     return {
       project: {
