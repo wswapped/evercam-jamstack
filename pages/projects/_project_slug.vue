@@ -22,7 +22,7 @@
           <div class="embed-responsive">
             <iframe
               class="embed-responsive-item"
-			  width="100"
+              width="100"
               src="https://player.vimeo.com/video/453811131?autoplay=1&amp;loop=1&amp;autopause=0&amp;title=0&amp;byline=0&amp;portrait=0&amp;quality=4k"
               allowfullscreen=""
             ></iframe>
@@ -72,6 +72,27 @@
               </tbody>
             </template>
           </v-simple-table>
+
+          <!-- <GMap
+            ref="gMap"
+            language="en"
+            :center="{ lat: locations[0].lat, lng: locations[0].lng }"
+            :options="{ fullscreenControl: true, styles: mapStyle }"
+            :zoom="8"
+          >
+            <GMapMarker
+              v-for="location in locations"
+              :key="location.id"
+              :position="{ lat: location.lat, lng: location.lng }"
+              @click="currentLocation = location"
+            >
+              <GMapInfoWindow :options="{ maxWidth: 200 }">
+                <code> lat: {{ location.lat }}, lng: {{ location.lng }} </code>
+              </GMapInfoWindow>
+            </GMapMarker>
+            <GMapCircle :options="circleOptions" />
+          </GMap> -->
+		   <iframe class="map" src="https://maps.google.com/maps?q=30.03204,-94.08829&z=15&output=embed" style="border:0"></iframe>
         </v-col>
       </v-row>
     </v-container>
@@ -99,7 +120,14 @@ export default {
         description:
           "The Palms at Cardinal is a residential development in Beaumont Texas. Check out this construction timelapse capturing the progress being",
         img: "/img/pro1.png",
-      },
+	  },
+	  currentLocation: {},
+      locations: [
+        {
+          lat: -94.08829,
+          lng: 30.03204,
+        }
+      ],
     };
   },
   components: {
