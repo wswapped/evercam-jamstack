@@ -45,7 +45,6 @@ export default {
   name: "NavBar",
   props: ['page'],
   data(){
-	console.log('page name', this.page == 'home'?'white--text':'noding')
     return {
       appTitle: 'Evercam',
 	  sidebar: false,
@@ -54,7 +53,7 @@ export default {
       menuItems: [
           { title: 'Projects', path: '/projects', icon: 'mdi-home' },
           { title: 'Pricing', path: '/pricing', icon: 'face' },
-          { title: 'Blog', path: '/blog', icon: 'lock_open' },
+          { title: 'Blog', path: '/blogs', icon: 'lock_open' },
           { title: 'Contact', path: '/contact', icon: 'lock_open' },
      ]
     }

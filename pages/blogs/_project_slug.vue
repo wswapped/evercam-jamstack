@@ -91,7 +91,7 @@ export default {
       title: this.project.name,
     };
   },
-  props: ["project_slug"],
+  props: ["slug"],
   data() {
     return {
       project: {
