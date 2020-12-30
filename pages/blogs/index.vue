@@ -18,21 +18,20 @@
       <v-row class="pl-15 section">
         <v-col
           cols="6"
-          v-for="(customer, custKey) in projects"
+          v-for="(blog, custKey) in blogs"
           :key="custKey"
           class="project"
         >
-          <NuxtLink :to="`/projects/${getSlug(customer.name)}`">
+          <NuxtLink :to="`/blogs/${getSlug(blog.name)}`">
             <v-img
-              :alt="customer.name"
-              :src="customer.img"
-              :lazy-src="customer.img"
+              :alt="blog.name"
+              :src="blog.img"
+              :lazy-src="blog.img"
               class="img-fluid"
-              to="projects/test"
             ></v-img>
+			<h2 class="primary--text">{{ blog.name }}</h2>
           </NuxtLink>
-          <h2 class="primary--text">{{ customer.name }}</h2>
-          <p>{{ customer.description }}</p>
+          <p>{{ blog.description }}</p>
         </v-col>
       </v-row>
     </v-container>
@@ -61,7 +60,7 @@ export default {
   },
   data() {
     return {
-      projects: [
+      blogs: [
         {
           name: "Top 10 Construction Timelapses of 2020",
           description:

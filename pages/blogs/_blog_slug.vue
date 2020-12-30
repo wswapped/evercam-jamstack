@@ -20,12 +20,12 @@
       <v-row class="pl-15 section">
         <v-col cols="12">
           <div class="embed-responsive">
-            <iframe
+            <!-- <iframe
               class="embed-responsive-item"
-			  width="100"
+              width="100"
               src="https://player.vimeo.com/video/453811131?autoplay=1&amp;loop=1&amp;autopause=0&amp;title=0&amp;byline=0&amp;portrait=0&amp;quality=4k"
               allowfullscreen=""
-            ></iframe>
+            ></iframe> -->
           </div>
         </v-col>
         <v-col cols="8">
@@ -55,23 +55,15 @@
           ></v-img>
         </v-col>
         <v-col cols="4">
-          <h3>Project Details</h3>
-          <v-simple-table>
-            <template v-slot:default>
-              <tbody>
-                <tr>
-                  <td>Client</td>
-                  <td>
-                    <a href="https://oneforcetx.com/">OneForce Construction</a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Channel Partner</td>
-                  <td><a href="https://www.danners.com/">Danner's Inc</a></td>
-                </tr>
-              </tbody>
-            </template>
-          </v-simple-table>
+          <h3>Recent Posts</h3>
+
+          <ul>
+            <li v-for="(blog, custKey) in blogs" :key="custKey">
+              <NuxtLink :to="`/blogs/${getSlug(blog.name)}`"
+                >{{blog.name}}</NuxtLink
+              >
+            </li>
+          </ul>
         </v-col>
       </v-row>
     </v-container>
@@ -92,14 +84,50 @@ export default {
     };
   },
   props: ["slug"],
+  methods: {
+    getSlug(projectName) {
+      // Returns route friendly url
+      let ret = projectName.toString().toLowerCase();
+      ret = ret.replace(" ", "_");
+      ret = ret.replace(/\W/gi, "");
+      return ret;
+	},
+  },
   data() {
     return {
       project: {
-        name: "The Palms - Beaumont, Texas",
+        name: "Top 10 Construction Timelapses of 2020",
         description:
           "The Palms at Cardinal is a residential development in Beaumont Texas. Check out this construction timelapse capturing the progress being",
         img: "/img/pro1.png",
       },
+      blogs: [
+        {
+          name: "Top 10 Construction Timelapses of 2020",
+          description:
+            "2020 has been full of surprises that no one asked for, a year unlike we've ever experienced. A year marked by huge disruption to the construction industry comes to an end",
+          img: "/img/bonham-3.png",
+        },
+        {
+          name:
+            "Evercam to create 50 jobs following €600,000 co-investment led by DBIC Ventures",
+          description:
+            "This is the first investment by DBIC Ventures’ new €23m early-stage fundFunding enables AI-powered construction software company, Evercam to:Double global staff to support expansion in the US, Australia and Middle...",
+          img: "/img/Evercam-2-scaled.jpg",
+        },
+        {
+          name: "Construction Time-lapse – How it Started How it’s Going",
+          description:
+            "Looking at the past and the present became looking into the future. Where we were, where we are, where will we be. How we Started - Communications  From day one,...",
+          img: "/img/Aspire-Element_181112_164340.jpg",
+        },
+        {
+          name: "Evercam's Autodesk BIM 360 Partner Card",
+          description:
+            "We are delighted to announce that Evercam and Autodesk BIM 360® users can now access their live Evercam cameras by simply setting up a BIM 360 Partner Card in their...",
+          img: "/img/poplar1-469x364-1.png",
+        },
+      ],
     };
   },
   components: {
