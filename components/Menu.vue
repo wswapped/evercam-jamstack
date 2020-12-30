@@ -50,7 +50,7 @@ export default {
       appTitle: 'Evercam',
 	  sidebar: false,
 	  menuItemColor: this.page == 'home'?'white--text':'',
-	  logoPath: this.page == 'home'?'evercam_logo_190x40.png':'evercam_color_logo_190x40.png',
+	  logoPath: this.page == 'home'?'/evercam_logo_190x40.png':'/evercam_color_logo_190x40.png',
       menuItems: [
           { title: 'Projects', path: '/projects', icon: 'mdi-home' },
           { title: 'Pricing', path: '/pricing', icon: 'face' },
