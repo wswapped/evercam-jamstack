@@ -9,7 +9,7 @@
           <v-col cols="6">
             <p class="h3 float-right">
               <span class="primary--text">Home</span> >
-              <span class="primary--text">Projects</span> >
+              <span class="primary--text">Blogs</span> >
               <span>{{ project.name }}</span>
             </p>
           </v-col>
