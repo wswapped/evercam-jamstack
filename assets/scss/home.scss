@@ -114,6 +114,15 @@ p{
     }
   }
 }
+.side-camera-container{
+	position: relative;
+	img.side-camera{
+		position: absolute;
+		right: -330px;
+		top: -230px;
+	}
+}
+
 
 .happy-customers {
   list-style-type: none;

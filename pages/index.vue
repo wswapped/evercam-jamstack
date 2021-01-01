@@ -123,6 +123,10 @@
         </v-col>
         <v-col cols="4">
           <!-- Camera image Offset -->
+		  <div class="side-camera-container">
+			  <img class="side-camera" src="/img/right-camera.jpg">
+		  </div>
+		  
         </v-col>
 
         <v-col cols="4">
