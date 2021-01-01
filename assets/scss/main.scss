@@ -63,6 +63,7 @@ footer{
 	border-top: 10px solid #e9eaee;
 	background: #363839 !important;
 	color: #bfbfbf !important;
+	padding-bottom: 0px !important;
 	.footer-title{
 		color: #bfbfbf;
 		margin-bottom: 4px;
@@ -80,5 +81,13 @@ footer{
 	}
 	.footer-col:not(:last-child){
 		border-right: 1px solid #747474;
+	}
+
+	.bottom-bar{
+		border-top: 1px solid #ddd;
+		padding-top: 15px;
+		width: 100vw;
+		margin: 0 -16px;
+		background-color: #282a2b;
 	}
 }

@@ -35,14 +35,14 @@
           <h2 class="primary--text">{{ customer.title }}</h2>
           <p>{{ customer.description }}</p>
         </v-col>
-		<!-- <v-col cols="12">{{posts}}</v-col> -->
+		<v-col cols="12">{{posts}}</v-col>
       </v-row>
     </v-container>
   </div>
 </template>
 
 <script>
-import { groq } from '@nuxtjs/sanity';
+import { groq, sanity } from '@nuxtjs/sanity';
 import Logo from "~/components/Logo.vue";
 import VuetifyLogo from "~/components/VuetifyLogo.vue";
 import { vueVimeoPlayer } from "vue-vimeo-player";
@@ -55,13 +55,14 @@ export default {
   },
   async asyncData({ $sanity }) {
     const query = groq`*[_type == "product"]`
-	let posts = await $sanity.fetch(query);
-	posts = posts.map((post) => {
-		return {
-			...post,
-			image: post.defaultProductVariant.images[0].asset._ref
-		}
-	})
+	// let posts = await $sanity.fetch(query);
+	// posts = posts.map((post) => {
+	// 	return {
+	// 		...post,
+	// 		image: post.defaultProductVariant.images[0].asset._ref
+	// 	}
+	// })
+	let posts = [];
 	console.log(posts)
     return { posts }
   },

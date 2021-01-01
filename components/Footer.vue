@@ -75,6 +75,32 @@
     <div class="bottom-bar">
       <v-container>
         <v-row>
+          <v-col cols="4">
+            <ul>
+              <li class="d-inline">
+                <a
+                  href="https://play.google.com/store/apps/details?id=io.evercam.androidapp"
+				  target="_blank"
+                >
+                  <img
+                    src="https://evercam.io/wp-content/themes/evercam/img/google_play_download.png"
+                    alt="Download App on Google Play"
+                  />
+                </a>
+              </li>
+			  <li class="d-inline">
+                <a
+                  href="https://itunes.apple.com/ie/app/evercam-play-ip-camera-viewer/id983189658?mt=8"
+				  target="_blank"
+                >
+                  <img
+                    src="https://evercam.io/wp-content/themes/evercam/img/ios-logo.png"
+                    alt="Download App on Google Play"
+                  />
+                </a>
+              </li>
+            </ul>
+          </v-col>
           <v-col cols="12">
             <p class="text-center">
               <span>&copy; {{ new Date().getFullYear() }}</span>
@@ -90,20 +116,7 @@
 export default {
   name: "ContactForm",
   data: () => ({
-    valid: true,
-    name: "",
-    nameRules: [
-      (v) => !!v || "Name is required",
-      (v) => (v && v.length <= 10) || "Name must be less than 10 characters",
-    ],
-    email: "",
-    emailRules: [
-      (v) => !!v || "E-mail is required",
-      (v) => /.+@.+/.test(v) || "E-mail must be valid",
-    ],
-    select: null,
-    items: ["Item 1", "Item 2", "Item 3", "Item 4"],
-    checkbox: false,
+    fixed: false,
   }),
 
   methods: {

@@ -4,14 +4,13 @@
 		<v-main>
 			<nuxt />
 		</v-main>
-		<v-footer :absolute="!fixed" app>
-			<span>&copy; {{ new Date().getFullYear() }}</span>
-		</v-footer>
+		<Footer />
 	</v-app>
 </template>
 
 <script>
 import Menu from '../components/Menu';
+import Footer from '../components/Footer';
 export default {
 	name: 'HomeLayout',
 	data() {
@@ -40,7 +39,8 @@ export default {
 	mounted(){
 	},
 	components:{
-		Menu
+		Menu,
+		Footer
 	}
 };
 </script>

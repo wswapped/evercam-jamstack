@@ -35,7 +35,7 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/vuetify
 	'@nuxtjs/vuetify',
-	"@nuxtjs/sanity"
+	// "@nuxtjs/sanity"
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
