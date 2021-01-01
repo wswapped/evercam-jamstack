@@ -14,7 +14,8 @@ export default {
       { hid: 'description', name: 'description', content: '' }
     ],
     link: [
-      { rel: 'shortcut icon', type: 'image/png', href: '/favicon_32_32.png', sizes:"32x32" }
+      { rel: 'shortcut icon', type: 'image/png', href: '/favicon_32_32.png', sizes:"32x32" },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Oswald&display=swap' }
     ]
   },
 
