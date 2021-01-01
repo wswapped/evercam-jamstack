@@ -58,3 +58,27 @@ h1,h2,h3,h4,h5,h6{
 		color: $primary !important;
 	}
 }
+
+footer{
+	border-top: 10px solid #e9eaee;
+	background: #363839 !important;
+	color: #bfbfbf !important;
+	.footer-title{
+		color: #bfbfbf;
+		margin-bottom: 4px;
+	}
+	ul{
+		padding-left: 0px !important;
+		li{
+			list-style: none;
+			a{
+				color: inherit !important;
+				text-transform: none;
+				text-decoration: none;
+			}
+		}
+	}
+	.footer-col:not(:last-child){
+		border-right: 1px solid #747474;
+	}
+}

@@ -253,7 +253,6 @@
         </v-col>
         <v-col cols="6">
 			<ContactForm />
-          
         </v-col>
       </v-row>
     </v-container>
