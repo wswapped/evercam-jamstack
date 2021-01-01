@@ -15,12 +15,12 @@
       </v-container>
     </div>
     <v-container class="">
-      <v-row class="pl-15 section">
+      <v-row class="section">
         <v-col
           cols="6"
           v-for="(blog, custKey) in blogs"
           :key="custKey"
-          class="project"
+          class="blog-container"
         >
           <NuxtLink :to="`/blogs/${getSlug(blog.name)}`">
             <v-img

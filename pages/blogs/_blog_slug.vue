@@ -59,8 +59,10 @@
 
           <ul>
             <li v-for="(blog, custKey) in blogs" :key="custKey">
-              <NuxtLink :to="`/blogs/${getSlug(blog.name)}`"
-                >{{blog.name}}</NuxtLink
+              <NuxtLink
+                class="text-decoration-none"
+                :to="`/blogs/${getSlug(blog.name)}`"
+                >{{ blog.name }}</NuxtLink
               >
             </li>
           </ul>
@@ -91,7 +93,7 @@ export default {
       ret = ret.replace(" ", "_");
       ret = ret.replace(/\W/gi, "");
       return ret;
-	},
+    },
   },
   data() {
     return {

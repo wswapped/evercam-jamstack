@@ -62,12 +62,12 @@
                 <tr>
                   <td>Client</td>
                   <td>
-                    <a href="https://oneforcetx.com/">OneForce Construction</a>
+                    <a class="text-decoration-none" href="https://oneforcetx.com/">OneForce Construction</a>
                   </td>
                 </tr>
                 <tr>
                   <td>Channel Partner</td>
-                  <td><a href="https://www.danners.com/">Danner's Inc</a></td>
+                  <td><a  class="text-decoration-none" href="https://www.danners.com/">Danner's Inc</a></td>
                 </tr>
               </tbody>
             </template>

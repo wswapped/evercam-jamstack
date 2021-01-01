@@ -31,8 +31,9 @@
               class="img-fluid"
               to="projects/test"
             ></v-img>
-          </NuxtLink>
-          <h2 class="primary--text">{{ customer.title }}</h2>
+          
+          <h2 class="primary--text text-decoration-none">{{ customer.title }}</h2>
+		  </NuxtLink>
           <p>{{ customer.description }}</p>
         </v-col>
 		<v-col cols="12">{{posts}}</v-col>
