@@ -1,6 +1,7 @@
 <template>
 	<v-app>
 		<Menu />
+		<div class="header-offset"></div>
 		<v-main>
 			<nuxt />
 		</v-main>
