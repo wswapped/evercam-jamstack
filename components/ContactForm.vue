@@ -24,6 +24,7 @@
     ></v-textarea>
 
     <v-btn
+      class="btn-style"
       color="primary white--text text-center"
       nuxt
       tile

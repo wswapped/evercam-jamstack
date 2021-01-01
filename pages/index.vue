@@ -6,13 +6,13 @@
           <v-row>
             <v-col cols="12" md="7">
               <div class="white--text pl-10">
-                <h1>CONSTRUCTION CAMERAS</h1>
+                <h1 class="mb-3">CONSTRUCTION CAMERAS</h1>
                 <p>
                   At Evercam, we have built the most advanced camera software,
                   so that you can concentrate on better management and speedy
                   completion.
                 </p>
-                <v-btn color="primary white--text" nuxt tile to="/inspire">
+                <v-btn color="btn-style primary white--text" nuxt depressed tile to="/inspire">
                   Contact Us Now
                 </v-btn>
               </div>
@@ -33,7 +33,7 @@
         <v-col cols="4">
           <div>
             <span class="sprite-icon sprite-icon-bg icon-promote"></span>
-            <h2 class="text-uppercase">Promote</h2>
+            <h2 class="text-uppercase mb-3">Promote</h2>
           </div>
 
           <p>
@@ -49,7 +49,7 @@
         <v-col cols="4">
           <div>
             <span class="sprite-icon sprite-icon-bg icon-collaborate"></span>
-            <h2 class="text-uppercase">COLLABORATE</h2>
+            <h2 class="text-uppercase mb-3">COLLABORATE</h2>
           </div>
           <p>
             Empower Project Managers with the right image at the right time.
@@ -64,7 +64,7 @@
           <div>
             <span class="sprite-icon sprite-icon-bg icon-avoid-disputes"></span>
           </div>
-          <h2 class="text-uppercase">AVOID DISPUTES</h2>
+          <h2 class="text-uppercase mb-3">AVOID DISPUTES</h2>
           <p>Don't just win arguments, avoid them. You own the evidence.</p>
           <ul class="check-list">
             <li>Own the evidence</li>
@@ -127,7 +127,7 @@
 
         <v-col cols="4">
           <div class="feature sprite-icon live-view">
-            <h2 class="text-uppercase primary--text">LIVE VIEW</h2>
+            <h2 class="text-uppercase primary--text mb-3">LIVE VIEW</h2>
             <p>
               Enjoy a <strong>live view</strong> of your construction site from
               anywhere. Use your mobile, laptop or tablet from the office, on
@@ -137,7 +137,7 @@
         </v-col>
         <v-col cols="4">
           <div class="feature sprite-icon share">
-            <h2 class="text-uppercase primary--text">SHARE</h2>
+            <h2 class="text-uppercase primary--text mb-3">SHARE</h2>
             <p>
               Simply enter an email address to
               <strong> live or recorded footage</strong>. Our system is 100%
@@ -150,7 +150,7 @@
         </v-col>
         <v-col cols="4">
           <div class="feature sprite-icon record">
-            <h2 class="text-uppercase primary--text">RECORD</h2>
+            <h2 class="text-uppercase primary--text mb-3">RECORD</h2>
             <p>
               <b>Record high-resolution images</b> for every second of the
               construction site progress. This gives you a full recording of the
@@ -161,7 +161,7 @@
         </v-col>
         <v-col cols="4">
           <div class="feature sprite-icon snapmail">
-            <h2 class="text-uppercase primary--text">Snapmail</h2>
+            <h2 class="text-uppercase primary--text mb-3">Snapmail</h2>
             <p>
               Snapmail is a perfect way to send a regular, scheduled reminder
               about all the key <strong> and project milestones.</strong>
@@ -170,7 +170,7 @@
         </v-col>
         <v-col cols="4">
           <div class="feature sprite-icon compare">
-            <h2 class="text-uppercase primary--text">COMPARE</h2>
+            <h2 class="text-uppercase primary--text mb-3">COMPARE</h2>
             <p>
               Compare <strong> before and after</strong> images from any point
               in time. Embed these neat visual aids on your website or
@@ -186,7 +186,7 @@
           </div>
         </v-col>
         <v-col cols="6">
-          <h1 class="section-title primary--text">TIME-LAPSE</h1>
+          <h1 class="section-title primary--text mb-3">TIME-LAPSE</h1>
           <p class="text-right">
             Make beautiful time-lapse videos of your construction project. Watch
             the build grow from start to finish in a couple of minutes.
@@ -196,6 +196,7 @@
             color="primary white--text float-right"
             nuxt
             tile
+			class="btn-style"
             to="/projects"
             >View projects</v-btn
           >
@@ -240,7 +241,7 @@
             <v-col cols="6">
               <p>I'm Vinnie</p>
               <p>
-                Call me on <strong>+353 1 539 7227</strong> or complete the form
+                Call me on <a href="tel://35315397227">+353 1 539 7227</a></strong> or complete the form
                 and we will be in touch as soon as possible.
               </p>
             </v-col>
