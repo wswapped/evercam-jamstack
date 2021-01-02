@@ -27,8 +27,8 @@ export default createSchema({
 	// in the studio.
 	post,
 	project,
-    product,
-    vendor,
+    // product,
+    // vendor,
     category,
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
