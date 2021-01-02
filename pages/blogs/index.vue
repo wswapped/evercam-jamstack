@@ -79,7 +79,6 @@ export default {
         img: imageUrl(post.image).url(),
       };
     });
-    console.log(posts);
     return { posts };
   },
   methods: {

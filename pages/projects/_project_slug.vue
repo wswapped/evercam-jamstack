@@ -4,13 +4,13 @@
       <v-container>
         <v-row>
           <v-col cols="6">
-            <p class="text-h5">{{ project.name }}</p>
+            <p class="text-h5">{{ sanityPost.title }}</p>
           </v-col>
           <v-col cols="6">
             <p class="h3 float-right">
               <span class="primary--text">Home</span> >
               <span class="primary--text">Projects</span> >
-              <span>{{ project.name }}</span>
+              <span>{{ sanityPost.title }}</span>
             </p>
           </v-col>
         </v-row>
@@ -18,7 +18,7 @@
     </div>
     <v-container class="">
       <v-row class="pl-15 section">
-        <v-col cols="12">
+        <!-- <v-col cols="12">
           <div class="embed-responsive">
             <iframe
               class="embed-responsive-item"
@@ -27,30 +27,19 @@
               allowfullscreen=""
             ></iframe>
           </div>
-        </v-col>
+        </v-col> -->
         <v-col cols="8">
-          <p>
-            <strong>The Palms at Cardinal</strong> is a residential development
-            in Beaumont Texas. Check out this construction timelapse capturing
-            the progress being made by OneForce Construction.
-          </p>
-
-          <p>
-            Located just minutes away from
-            <strong>Lamar University and central Beaumont</strong>, this
-            development will be ideal for both students and working
-            professionals.
-          </p>
-
-          <p>
-            Upon completion this project will offer 1-4 bedroom homes, as well
-            as study rooms, office space, a 24 hour gym & a beautiful outdoor
-            area with a modern pool.
-          </p>
+          <BlockContent
+            :blocks="child"
+            :projectId="sanData.projectId"
+            :dataset="sanData.dataset"
+            v-for="child in sanityPost.description.en"
+            :key="child._id"
+          />
           <v-img
-            :alt="project.name"
-            :src="project.img"
-            :lazy-src="project.img"
+            :alt="sanityPost.title"
+            :src="sanityPost.img"
+            :lazy-src="sanityPost.img"
             class="img-fluid"
           ></v-img>
         </v-col>
@@ -62,12 +51,22 @@
                 <tr>
                   <td>Client</td>
                   <td>
-                    <a class="text-decoration-none" href="https://oneforcetx.com/">OneForce Construction</a>
+                    <a
+                      class="text-decoration-none"
+                      href="https://oneforcetx.com/"
+                      >OneForce Construction</a
+                    >
                   </td>
                 </tr>
                 <tr>
                   <td>Channel Partner</td>
-                  <td><a  class="text-decoration-none" href="https://www.danners.com/">Danner's Inc</a></td>
+                  <td>
+                    <a
+                      class="text-decoration-none"
+                      href="https://www.danners.com/"
+                      >Danner's Inc</a
+                    >
+                  </td>
                 </tr>
               </tbody>
             </template>
@@ -92,7 +91,11 @@
             </GMapMarker>
             <GMapCircle :options="circleOptions" />
           </GMap> -->
-		   <iframe class="map" src="https://maps.google.com/maps?q=30.03204,-94.08829&z=15&output=embed" style="border:0"></iframe>
+          <iframe
+            class="map"
+            src="https://maps.google.com/maps?q=30.03204,-94.08829&z=15&output=embed"
+            style="border: 0"
+          ></iframe>
         </v-col>
       </v-row>
     </v-container>
@@ -100,6 +103,10 @@
 </template>
 
 <script>
+import sanity, { imageUrl } from "@/plugins/sanity";
+import sanityConfig from "@/sanity.json";
+import BlockContent from "sanity-blocks-vue-component";
+import { groq } from "@nuxtjs/sanity";
 import Logo from "~/components/Logo.vue";
 import VuetifyLogo from "~/components/VuetifyLogo.vue";
 import { vueVimeoPlayer } from "vue-vimeo-player";
@@ -109,31 +116,52 @@ import "~/assets/scss/projects.scss";
 export default {
   head() {
     return {
-      title: this.project.name,
+      title: this.sanityPost.title,
     };
   },
-  props: ["project_slug"],
+  async asyncData({ params }) {
+    let slug = params.project_slug;
+    const query = `*[_type == "project" && slug.current == $slug]{
+		slug,
+		name,
+		title,
+		description,
+		image
+	}[0]`;
+    let sanityPost = await sanity.fetch(query, { slug: slug });
+    sanityPost = {
+      ...sanityPost,
+      img: imageUrl(sanityPost.image).url(),
+    };
+    return {
+      sanityPost,
+      projectId: sanityConfig.api.sanityConfig,
+      dataset: sanityConfig.api.dataset,
+    };
+  },
   data() {
     return {
+      sanData: sanityConfig.api,
       project: {
         name: "The Palms - Beaumont, Texas",
         description:
           "The Palms at Cardinal is a residential development in Beaumont Texas. Check out this construction timelapse capturing the progress being",
         img: "/img/pro1.png",
-	  },
-	  currentLocation: {},
+      },
+      currentLocation: {},
       locations: [
         {
           lat: -94.08829,
           lng: 30.03204,
-        }
+        },
       ],
     };
   },
   components: {
     Logo,
     VuetifyLogo,
-    vueVimeoPlayer,
+	vueVimeoPlayer,
+	BlockContent,
   },
 };
 </script>

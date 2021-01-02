@@ -15,35 +15,34 @@
       </v-container>
     </div>
     <v-container class="">
-      <v-row class="pl-15 section">
+	  <v-row class="pl-15 section">
         <v-col
           cols="3"
-          v-for="(customer, custKey) in projects"
+          v-for="(project, custKey) in sanityProjects"
           :key="custKey"
           class="project"
         >
-		<!-- {{customer}} -->
-          <NuxtLink :to="`/projects/${getSlug(customer.title)}`">
+          <NuxtLink :to="`/projects/${project.slug.current}`">
             <v-img
-              :alt="customer.title"
-              :src="customer.img"
-              :lazy-src="customer.img"
+              :alt="project.title"
+              :src="project.img"
+              :lazy-src="project.img"
               class="img-fluid"
               to="projects/test"
             ></v-img>
           
-          <h2 class="primary--text text-decoration-none">{{ customer.title }}</h2>
+          <h2 class="primary--text text-decoration-none">{{ project.title }}</h2>
 		  </NuxtLink>
-          <p>{{ customer.description }}</p>
+          <p>{{ project.blurb.en }}</p>
         </v-col>
-		<v-col cols="12">{{posts}}</v-col>
       </v-row>
     </v-container>
   </div>
 </template>
 
 <script>
-import { groq, sanity } from '@nuxtjs/sanity';
+import sanity, { imageUrl } from "@/plugins/sanity";
+import { groq } from "@nuxtjs/sanity";
 import Logo from "~/components/Logo.vue";
 import VuetifyLogo from "~/components/VuetifyLogo.vue";
 import { vueVimeoPlayer } from "vue-vimeo-player";
@@ -54,18 +53,17 @@ export default {
   head: {
     title: "Projects Archive",
   },
-  async asyncData({ $sanity }) {
-    const query = groq`*[_type == "product"]`
-	// let posts = await $sanity.fetch(query);
-	// posts = posts.map((post) => {
-	// 	return {
-	// 		...post,
-	// 		image: post.defaultProductVariant.images[0].asset._ref
-	// 	}
-	// })
-	let posts = [];
-	console.log(posts)
-    return { posts }
+  async asyncData() {
+    const query = groq`*[_type == "project"]`;
+    let sanityProjects = await sanity.fetch(query);
+    sanityProjects = sanityProjects.map((post) => {
+      return {
+        ...post,
+        img: imageUrl(post.image).url(),
+      };
+    });
+    console.log(sanityProjects);
+    return { sanityProjects };
   },
   methods: {
     getSlug(projectName) {

@@ -80,7 +80,6 @@ export default {
   },
   async asyncData({ params }) {
     let slug = params.blog_slug;
-    // const query = `*[_type == "post" && slug == $slug]`;
     const query = `*[_type == "post" && slug.current == $slug]{
 		slug,
 		title,
