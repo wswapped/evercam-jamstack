@@ -8,6 +8,7 @@ import blockContent from './blockContent'
 import category from './category'
 import product from './product'
 import post from './post'
+import project from './project'
 import vendor from './vendor'
 import productVariant from './productVariant'
 
@@ -25,6 +26,7 @@ export default createSchema({
     // The following are document types which will appear
 	// in the studio.
 	post,
+	project,
     product,
     vendor,
     category,

@@ -15,7 +15,8 @@
       </v-container>
     </div>
     <v-container class="">
-      <v-row class="section">
+      <!-- Disabled -->
+      <v-row class="section" v-if="false">
         <v-col
           cols="6"
           v-for="(blog, custKey) in blogs"
@@ -34,11 +35,7 @@
           <p>{{ blog.description }}</p>
         </v-col>
       </v-row>
-      <v-row class="section mt-5">
-        <v-col>
-			Hey
-          {{ posts }}
-        </v-col>
+      <v-row class="section">
         <v-col
           cols="6"
           v-for="(blog, custKey) in posts"
@@ -54,7 +51,6 @@
             ></v-img>
             <h2 class="mt-2 mb-2 primary--text">{{ blog.title }}</h2>
           </NuxtLink>
-          <p>{{ blog.blurb.en }}</p>
         </v-col>
       </v-row>
     </v-container>
@@ -79,8 +75,8 @@ export default {
     let posts = await sanity.fetch(query);
     posts = posts.map((post) => {
       return {
-		...post,
-		img: imageUrl(post.image).url()
+        ...post,
+        img: imageUrl(post.image).url(),
       };
     });
     console.log(posts);

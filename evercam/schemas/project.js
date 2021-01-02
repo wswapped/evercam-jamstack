@@ -1,6 +1,6 @@
 export default {
-	name: 'product',
-	title: 'Product',
+	name: 'project',
+	title: 'Project',
 	type: 'document',
 	fields: [
 	  {
@@ -18,59 +18,38 @@ export default {
 		},
 	  },
 	  {
-		title: 'Default variant',
-		name: 'defaultProductVariant',
-		type: 'productVariant',
+		name: 'image',
+		title: 'Main Image',
+		type: 'image',
 	  },
 	  {
-		title: 'Variants',
-		name: 'variants',
-		type: 'array',
-		of: [
-		  {
-			title: 'Variant',
-			type: 'productVariant',
-		  },
-		],
-	  },
-	  {
-		title: 'Tags',
-		name: 'tags',
-		type: 'array',
-		of: [
-		  {
-			type: 'string',
-		  },
-		],
-		options: {
-		  layout: 'tags',
-		},
-	  },
-	  {
-		name: 'vendor',
-		title: 'Vendor',
+		name: 'category',
+		title: 'Category',
 		type: 'reference',
-		to: {type: 'vendor'},
+		to: {type: 'category'},
+		// of: [
+		//   {
+		// 	type: 'reference',
+		// 	to: {type: 'category'},
+		//   },
+		// ],
 	  },
+	//   {
+	// 	title: 'Tags',
+	// 	name: 'tags',
+	// 	type: 'array',
+	// 	of: [
+	// 	  {
+	// 		type: 'string',
+	// 	  },
+	// 	],
+	// 	options: {
+	// 	  layout: 'tags',
+	// 	},
+	//   },
 	  {
-		name: 'blurb',
-		title: 'Blurb',
-		type: 'localeString',
-	  },
-	  {
-		name: 'categories',
-		title: 'Categories',
-		type: 'array',
-		of: [
-		  {
-			type: 'reference',
-			to: {type: 'category'},
-		  },
-		],
-	  },
-	  {
-		name: 'body',
-		title: 'Body',
+		name: 'description',
+		title: 'Description',
 		type: 'localeBlockContent',
 	  },
 	],
@@ -79,7 +58,7 @@ export default {
 	  select: {
 		title: 'title',
 		manufactor: 'manufactor.title',
-		media: 'defaultProductVariant.images[0]',
+		media: 'image',
 	  },
 	},
   }

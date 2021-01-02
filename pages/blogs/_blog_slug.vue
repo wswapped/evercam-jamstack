@@ -17,7 +17,7 @@
       </v-container>
     </div>
     <v-container class="">
-      <v-row class="pl-15 section">
+      <v-row class="pl-15 pr-15 section">
         <v-col cols="12">
           <div class="embed-responsive">
             <!-- <iframe
@@ -37,6 +37,8 @@
           ></v-img>
           <BlockContent
             :blocks="child"
+			:projectId="sanData.projectId"
+			:dataset="sanData.dataset"
             v-for="child in post.body.en"
             :key="child._id"
           />
@@ -61,6 +63,7 @@
 
 <script>
 import sanity, { imageUrl } from "@/plugins/sanity";
+import sanityConfig from "@/sanity.json";
 import BlockContent from "sanity-blocks-vue-component";
 import { groq } from "@nuxtjs/sanity";
 import Logo from "~/components/Logo.vue";
@@ -77,10 +80,8 @@ export default {
   },
   async asyncData({ params }) {
     let slug = params.blog_slug;
-    console.log(slug);
-
     // const query = `*[_type == "post" && slug == $slug]`;
-    const query = `*[_type == "post" && slug.current == 'top-10-construction-timelapses-of-2020']{
+    const query = `*[_type == "post" && slug.current == $slug]{
 		slug,
 		title,
 		body,
@@ -91,8 +92,11 @@ export default {
       ...post,
       img: imageUrl(post.image).url(),
     };
-    console.log(post);
-    return { post };
+    return {
+      post,
+      projectId: sanityConfig.api.sanityConfig,
+      dataset: sanityConfig.api.dataset,
+    };
   },
   props: ["slug"],
   methods: {
@@ -102,10 +106,13 @@ export default {
       ret = ret.replace(" ", "_");
       ret = ret.replace(/\W/gi, "");
       return ret;
-	},
+    },
   },
   data() {
     return {
+      projectId: sanityConfig.api.sanityConfig,
+	  dataset: sanityConfig.api.dataset,
+	  sanData: sanityConfig.api,
       blogs: [
         {
           name: "Top 10 Construction Timelapses of 2020",
