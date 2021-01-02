@@ -4,13 +4,13 @@
       <v-container>
         <v-row>
           <v-col cols="6">
-            <p class="text-h5">{{ project.name }}</p>
+            <p class="text-h5">{{ post.title }}</p>
           </v-col>
           <v-col cols="6">
             <p class="h3 float-right">
               <span class="primary--text">Home</span> >
               <span class="primary--text">Blogs</span> >
-              <span>{{ project.name }}</span>
+              <span>{{ post.title }}</span>
             </p>
           </v-col>
         </v-row>
@@ -29,30 +29,17 @@
           </div>
         </v-col>
         <v-col cols="8">
-          <p>
-            <strong>The Palms at Cardinal</strong> is a residential development
-            in Beaumont Texas. Check out this construction timelapse capturing
-            the progress being made by OneForce Construction.
-          </p>
-
-          <p>
-            Located just minutes away from
-            <strong>Lamar University and central Beaumont</strong>, this
-            development will be ideal for both students and working
-            professionals.
-          </p>
-
-          <p>
-            Upon completion this project will offer 1-4 bedroom homes, as well
-            as study rooms, office space, a 24 hour gym & a beautiful outdoor
-            area with a modern pool.
-          </p>
           <v-img
-            :alt="project.name"
-            :src="project.img"
-            :lazy-src="project.img"
-            class="img-fluid"
+            :alt="post.title"
+            :src="post.img"
+            :lazy-src="post.img"
+            class="img-fluid mb-2"
           ></v-img>
+          <BlockContent
+            :blocks="child"
+            v-for="child in post.body.en"
+            :key="child._id"
+          />
         </v-col>
         <v-col cols="4">
           <h3>Recent Posts</h3>
@@ -73,6 +60,9 @@
 </template>
 
 <script>
+import sanity, { imageUrl } from "@/plugins/sanity";
+import BlockContent from "sanity-blocks-vue-component";
+import { groq } from "@nuxtjs/sanity";
 import Logo from "~/components/Logo.vue";
 import VuetifyLogo from "~/components/VuetifyLogo.vue";
 import { vueVimeoPlayer } from "vue-vimeo-player";
@@ -82,8 +72,27 @@ import "~/assets/scss/projects.scss";
 export default {
   head() {
     return {
-      title: this.project.name,
+      title: this.post.title,
     };
+  },
+  async asyncData({ params }) {
+    let slug = params.blog_slug;
+    console.log(slug);
+
+    // const query = `*[_type == "post" && slug == $slug]`;
+    const query = `*[_type == "post" && slug.current == 'top-10-construction-timelapses-of-2020']{
+		slug,
+		title,
+		body,
+		image
+	}[0]`;
+    let post = await sanity.fetch(query, { slug: slug });
+    post = {
+      ...post,
+      img: imageUrl(post.image).url(),
+    };
+    console.log(post);
+    return { post };
   },
   props: ["slug"],
   methods: {
@@ -93,16 +102,10 @@ export default {
       ret = ret.replace(" ", "_");
       ret = ret.replace(/\W/gi, "");
       return ret;
-    },
+	},
   },
   data() {
     return {
-      project: {
-        name: "Top 10 Construction Timelapses of 2020",
-        description:
-          "The Palms at Cardinal is a residential development in Beaumont Texas. Check out this construction timelapse capturing the progress being",
-        img: "/img/pro1.png",
-      },
       blogs: [
         {
           name: "Top 10 Construction Timelapses of 2020",
@@ -136,6 +139,7 @@ export default {
     Logo,
     VuetifyLogo,
     vueVimeoPlayer,
+    BlockContent,
   },
 };
 </script>

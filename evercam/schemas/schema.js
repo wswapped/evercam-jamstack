@@ -7,6 +7,7 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 import blockContent from './blockContent'
 import category from './category'
 import product from './product'
+import post from './post'
 import vendor from './vendor'
 import productVariant from './productVariant'
 
@@ -22,7 +23,8 @@ export default createSchema({
   // to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
     // The following are document types which will appear
-    // in the studio.
+	// in the studio.
+	post,
     product,
     vendor,
     category,

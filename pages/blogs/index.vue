@@ -29,9 +29,32 @@
               :lazy-src="blog.img"
               class="img-fluid"
             ></v-img>
-			<h2 class="primary--text">{{ blog.name }}</h2>
+            <h2 class="mt-2 mb-2 primary--text">{{ blog.name }}</h2>
           </NuxtLink>
           <p>{{ blog.description }}</p>
+        </v-col>
+      </v-row>
+      <v-row class="section mt-5">
+        <v-col>
+			Hey
+          {{ posts }}
+        </v-col>
+        <v-col
+          cols="6"
+          v-for="(blog, custKey) in posts"
+          :key="custKey"
+          class="blog-container"
+        >
+          <NuxtLink :to="`/blogs/${blog.slug.current}`">
+            <v-img
+              :alt="blog.title"
+              :src="blog.img"
+              :lazy-src="blog.img"
+              class="img-fluid"
+            ></v-img>
+            <h2 class="mt-2 mb-2 primary--text">{{ blog.title }}</h2>
+          </NuxtLink>
+          <p>{{ blog.blurb.en }}</p>
         </v-col>
       </v-row>
     </v-container>
@@ -39,6 +62,8 @@
 </template>
 
 <script>
+import sanity, { imageUrl } from "@/plugins/sanity";
+import { groq } from "@nuxtjs/sanity";
 import Logo from "~/components/Logo.vue";
 import VuetifyLogo from "~/components/VuetifyLogo.vue";
 import { vueVimeoPlayer } from "vue-vimeo-player";
@@ -48,6 +73,18 @@ import "~/assets/scss/blog.scss";
 export default {
   head: {
     title: "Blog",
+  },
+  async asyncData() {
+    const query = groq`*[_type == "post"]`;
+    let posts = await sanity.fetch(query);
+    posts = posts.map((post) => {
+      return {
+		...post,
+		img: imageUrl(post.image).url()
+      };
+    });
+    console.log(posts);
+    return { posts };
   },
   methods: {
     getSlug(projectName) {
@@ -68,7 +105,8 @@ export default {
           img: "/img/bonham-3.png",
         },
         {
-          name: "Evercam to create 50 jobs following €600,000 co-investment led by DBIC Ventures",
+          name:
+            "Evercam to create 50 jobs following €600,000 co-investment led by DBIC Ventures",
           description:
             "This is the first investment by DBIC Ventures’ new €23m early-stage fundFunding enables AI-powered construction software company, Evercam to:Double global staff to support expansion in the US, Australia and Middle...",
           img: "/img/Evercam-2-scaled.jpg",

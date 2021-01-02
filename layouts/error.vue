@@ -9,7 +9,9 @@
           <h1 v-else>
             {{ otherError }}
           </h1>
-          <h5>You'll be redicted to the live server in</h5>
+          <h5 v-if="error.statusCode === 404">
+            You'll be redicted to the live server in
+          </h5>
           <p>{{ redirectIn }}</p>
           <NuxtLink to="/"> Home page </NuxtLink>
         </v-col>
@@ -35,9 +37,11 @@ export default {
     };
   },
   mounted() {
-    setInterval(() => {
-      if (this.redirectIn > 0) this.redirectIn = this.redirectIn - 1;
-    }, 1000);
+    if (this.error.statusCode === 404) {
+      setInterval(() => {
+        if (this.redirectIn > 0) this.redirectIn = this.redirectIn - 1;
+      }, 1000);
+    }
   },
   watch: {
     redirectIn() {
