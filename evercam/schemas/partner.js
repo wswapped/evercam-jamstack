@@ -23,6 +23,26 @@ export default {
 		type: 'url',
 	  },
 	  {
+		name: "logo",
+		title: "Partner Logo",
+		type: "image"
+	  },
+	  {
+		name: "areas",
+		title: "Covered Areas",
+		type: "array",
+		of: [{type: 'string'}],
+		options: {
+		  list: [
+			{title: 'UK', value: 'uk'},
+			{title: 'Australia', value: 'australia'},
+			{title: 'Scotland and Northern England', value: 'scotland_northern_england'},
+			{title: 'Ireland', value: 'ireland'},
+			{title: 'Houston & Gulf Coast Region', value: 'houston_gulf_coast'},
+		  ]
+		}
+	  },
+	  {
 		title: 'Partner Map Location',
 		name: 'map_location',
 		type: 'object',
@@ -34,7 +54,7 @@ export default {
 	  {
 		name: 'description',
 		title: 'Description',
-		type: 'text',
+		type: 'localeBlockContent',
 	  },
 	  {
 		name: 'phone',
