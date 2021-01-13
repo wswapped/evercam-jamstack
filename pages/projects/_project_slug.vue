@@ -48,24 +48,89 @@
           <v-simple-table>
             <template v-slot:default>
               <tbody>
-                <tr>
+                <tr v-if="sanityPost.client">
                   <td>Client</td>
                   <td>
                     <a
                       class="text-decoration-none"
-                      href="https://oneforcetx.com/"
-                      >OneForce Construction</a
+                      :href="sanityPost.client.website"
+                      >{{ sanityPost.client.name }}</a
                     >
                   </td>
                 </tr>
-                <tr>
+                <tr v-if="sanityPost.channel_partner">
                   <td>Channel Partner</td>
                   <td>
                     <a
                       class="text-decoration-none"
-                      href="https://www.danners.com/"
-                      >Danner's Inc</a
+                      :href="sanityPost.channel_partner.website"
+                      >{{sanityPost.channel_partner.name}}</a
                     >
+                  </td>
+                </tr>
+                <tr v-if="sanityPost.architect">
+                  <td>Architects</td>
+                  <td>
+                    <a
+                      class="text-decoration-none"
+                      target="_blank"
+                      :href="sanityPost.architect.website"
+                      >{{ sanityPost.architect.name }}</a
+                    >
+                  </td>
+                </tr>
+                <tr v-if="sanityPost.civil_structural_engineers">
+                  <td>Civil and Structural Engineers</td>
+                  <td>
+                    <a
+                      class="text-decoration-none"
+                      target="_blank"
+                      :href="sanityPost.civil_structural_engineers.website"
+                      >{{ sanityPost.civil_structural_engineers.name }}</a
+                    >
+                  </td>
+                </tr>
+                <tr v-if="sanityPost.mechanical_electrical_engineers">
+                  <td>Mechanical and Electrical Engineers</td>
+                  <td>
+                    <a
+                      class="text-decoration-none"
+                      target="_blank"
+                      :href="sanityPost.mechanical_electrical_engineers.website"
+                      >{{ sanityPost.mechanical_electrical_engineers.name }}</a
+                    >
+                  </td>
+                </tr>
+                <tr v-if="sanityPost.landscape_architect">
+                  <td>Landscape Architects</td>
+                  <td>
+                    <a
+                      class="text-decoration-none"
+                      target="_blank"
+                      :href="sanityPost.landscape_architect.website"
+                      >{{ sanityPost.landscape_architect.name }}</a
+                    >
+                  </td>
+                </tr>
+                <tr v-if="sanityPost.environmental_achaelology">
+                  <td>Environmental / Archaeology</td>
+                  <td>
+                    <a
+                      class="text-decoration-none"
+                      target="_blank"
+                      :href="sanityPost.environmental_achaelology.website"
+                      >{{ sanityPost.environmental_achaelology.name }}</a
+                    >
+                  </td>
+                </tr>
+                <tr v-if="sanityPost.planning_consultant">
+                  <td>Planning Consultant</td>
+                  <td>
+                    <a
+                      class="text-decoration-none"
+                      target="_blank"
+                      :href="sanityPost.planning_consultant.website"
+                      >{{ sanityPost.planning_consultant.name }}</a>
                   </td>
                 </tr>
               </tbody>
@@ -92,8 +157,15 @@
             <GMapCircle :options="circleOptions" />
           </GMap> -->
           <iframe
+            v-if="sanityPost.lat && sanityPost.lng"
             class="map"
-            src="https://maps.google.com/maps?q=30.03204,-94.08829&z=15&output=embed"
+            :src="
+              'https://maps.google.com/maps?q=' +
+              sanityPost.lat +
+              ',' +
+              sanityPost.lng +
+              '&z=15&output=embed'
+            "
             style="border: 0"
           ></iframe>
         </v-col>
@@ -122,13 +194,11 @@ export default {
   async asyncData({ params }) {
     let slug = params.project_slug;
     const query = `*[_type == "project" && slug.current == $slug]{
-		slug,
-		name,
-		title,
-		description,
-		image
-	}[0]`;
+      ...,
+      channel_partner->
+    }[0]`;
     let sanityPost = await sanity.fetch(query, { slug: slug });
+    console.log(sanityPost);
     sanityPost = {
       ...sanityPost,
       img: imageUrl(sanityPost.image).url(),
@@ -160,8 +230,8 @@ export default {
   components: {
     Logo,
     VuetifyLogo,
-	vueVimeoPlayer,
-	BlockContent,
+    vueVimeoPlayer,
+    BlockContent,
   },
 };
 </script>

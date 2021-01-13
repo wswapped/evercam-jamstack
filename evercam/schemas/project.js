@@ -34,19 +34,85 @@ export default {
       //   },
       // ],
     },
-    //   {
-    // 	title: 'Tags',
-    // 	name: 'tags',
-    // 	type: 'array',
-    // 	of: [
-    // 	  {
-    // 		type: 'string',
-    // 	  },
-    // 	],
-    // 	options: {
-    // 	  layout: 'tags',
-    // 	},
-    //   },
+    {
+      name: "channel_partner",
+      title: "Channel partner",
+      type: "reference",
+      to: { type: "partner" }
+    },
+    {
+      name: "lat",
+      title: "Latitude",
+      type: "number"
+    },
+    {
+      name: "lng",
+      title: "Longitude",
+      type: "number"
+    },
+    {
+      title: 'Client',
+      name: 'client',
+      type: 'object',
+      fields: [
+        {name: 'name', type: 'string', title: 'Client name'},
+        {name: 'website', type: 'string', title: 'Client website'}
+      ]
+    },
+    {
+      title: 'Architect',
+      name: 'architect',
+      type: 'object',
+      fields: [
+        {name: 'name', type: 'string', title: 'Architect name'},
+        {name: 'website', type: 'string', title: 'Architect website'}
+      ]
+    },
+    {
+      title: 'Landscape Architects',
+      name: 'landscape_architect',
+      type: 'object',
+      fields: [
+        {name: 'name', type: 'string', title: 'Architect name'},
+        {name: 'website', type: 'string', title: 'Architect website'}
+      ]
+    },
+    {
+      title: 'Civil and Structural Engineers',
+      name: 'civil_structural_engineers',
+      type: 'object',
+      fields: [
+        {name: 'name', type: 'string', title: 'Name'},
+        {name: 'website', type: 'string', title: 'Website'}
+      ]
+    },
+    {
+      title: 'Mechanical and Electrical Engineers',
+      name: 'mechanical_electrical_engineers',
+      type: 'object',
+      fields: [
+        {name: 'name', type: 'string', title: 'Name'},
+        {name: 'website', type: 'string', title: 'Website'}
+      ]
+    },
+    {
+      title: 'Environmental / Archaeology',
+      name: 'environmental_achaelology',
+      type: 'object',
+      fields: [
+        {name: 'name', type: 'string', title: 'Name'},
+        {name: 'website', type: 'string', title: 'Website'}
+      ]
+    },
+    {
+      title: 'Planning Consultant',
+      name: 'planning_consultant',
+      type: 'object',
+      fields: [
+        {name: 'name', type: 'string', title: 'Name'},
+        {name: 'website', type: 'string', title: 'Website'}
+      ]
+    },
     {
       name: "blurb",
       title: "Blurb",
