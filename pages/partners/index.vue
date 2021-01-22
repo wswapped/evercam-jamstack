@@ -8,14 +8,13 @@
           </v-col>
           <v-col cols="6">
             <p class="h3 float-right">
-              <span class="primary--text">Home</span> > Projects
+              <span class="primary--text">Home</span> > Evercam Partners
             </p>
           </v-col>
         </v-row>
       </v-container>
     </div>
     <v-container class="">
-      {{partners}}
       <v-row class="pl-15 section">
         <v-col
           cols="6"
